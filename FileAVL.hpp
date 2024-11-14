@@ -154,4 +154,6 @@ class FileAVL {
        * @param t The node to be deleted
        */
       void deleteTree(Node*& t);
+
+      void search(Node*& subroot, size_t min, size_t max, std::vector<File*>& result);
 };

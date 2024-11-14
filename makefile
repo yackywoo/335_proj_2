@@ -3,7 +3,7 @@ CXXFLAGS = -std=c++17 -g -Wall -O2
 
 PROG ?= main
 TEST_PROG ?= test
-OBJS = File.o FileAVL.o FileTrie.o solution.o main.o
+OBJS = File.o FileAVL.o solution.o main.o #FileTrie.o
 
 mainprog: $(PROG)
 

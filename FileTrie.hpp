@@ -27,17 +27,33 @@ struct FileTrieNode {
 class FileTrie {
     private:
         FileTrieNode* head;
-    
+        void deleteTrie(FileTrieNode* sub_head);
+        void addHelper(FileTrieNode* head, const std::string& fileName, File* f);
+        void searchHelper(const std::string& prefix, FileTrieNode* subroot, std::unordered_set<File*>& result) const;
     public:
-        // Default constructor
+        /**
+         * @brief Default Constructor: Construct a new FileTrie object
+         */
         FileTrie();
 
-        // Add file, ignore case
+        /**
+         * @brief Adds file into FileTrie object, case insensitive
+         * 
+         * @param f The file to be added
+         */
         void addFile(File* f);
 
-        // Search
+        /**
+         * @brief Searches the FileTrie for some prefix and returns a set of Files that begin with that prefix.
+         *      If no match is found, then an empty set is returned.
+         * 
+         * @param prefix Prefix that is being searched for
+         * @return Set of all Files with the same prefix, if found, else empty set.
+         */
         std::unordered_set<File*> getFilesWithPrefix(const std::string& prefix) const;
 
-        // Destructor
+        /**
+         * @brief Destroy the FileTrie, deallocating all necessary FileTrieNodes
+         */
         ~FileTrie();
 };
